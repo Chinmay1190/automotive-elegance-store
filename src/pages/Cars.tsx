@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Header } from '@/components/Header';
 import { CarCard } from '@/components/CarCard';
@@ -6,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cars, brands } from '@/data/cars';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, Star, Grid, List } from 'lucide-react';
 
 export default function Cars() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,6 +13,7 @@ export default function Cars() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [priceRange, setPriceRange] = useState('all');
   const [sortBy, setSortBy] = useState('name');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const filteredAndSortedCars = useMemo(() => {
     let filtered = cars.filter(car => {
@@ -44,7 +44,6 @@ export default function Cars() {
       return matchesSearch && matchesBrand && matchesCategory && matchesPrice;
     });
 
-    // Sort
     filtered.sort((a, b) => {
       switch (sortBy) {
         case 'price-low':
@@ -69,33 +68,64 @@ export default function Cars() {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-luxury font-bold text-foreground mb-4">
-            Our Complete Collection
+      <div className="container mx-auto px-4 py-12">
+        <div className="mb-12 animate-fade-in text-center">
+          <div className="inline-flex items-center gap-3 bg-luxury-gold/10 px-6 py-3 rounded-full mb-6">
+            <Star className="h-5 w-5 text-luxury-gold" />
+            <span className="text-luxury-gold font-semibold">Complete Collection</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6">
+            Our Premium <span className="text-shimmer">Vehicles</span>
           </h1>
-          <p className="text-xl text-muted-foreground">
-            Discover {cars.length} extraordinary vehicles from the world's most prestigious brands
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Discover {cars.length} extraordinary vehicles from the world's most prestigious brands, 
+            each one representing the pinnacle of automotive excellence
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="bg-card border border-border rounded-lg p-6 mb-8 animate-fade-in">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+        {/* Enhanced Filters */}
+        <div className="bg-gradient-to-r from-card via-card to-muted/20 border-2 border-border rounded-2xl p-8 mb-12 animate-fade-in luxury-shadow">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-2xl font-luxury font-bold text-foreground flex items-center gap-3">
+              <Filter className="h-6 w-6 text-luxury-gold" />
+              Refine Your Search
+            </h3>
+            <div className="flex gap-2">
+              <Button
+                variant={viewMode === 'grid' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setViewMode('grid')}
+                className="rounded-full"
+              >
+                <Grid className="h-4 w-4" />
+              </Button>
+              <Button
+                variant={viewMode === 'list' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setViewMode('list')}
+                className="rounded-full"
+              >
+                <List className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
             {/* Search */}
-            <div className="lg:col-span-2 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <div className="lg:col-span-2 relative group">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within:text-luxury-gold transition-colors" />
               <Input
-                placeholder="Search cars or brands..."
+                placeholder="Search luxury cars or brands..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+                className="pl-12 h-12 rounded-xl border-2 focus:border-luxury-gold transition-all duration-300"
               />
             </div>
 
             {/* Brand Filter */}
             <Select value={selectedBrand} onValueChange={setSelectedBrand}>
-              <SelectTrigger>
+              <SelectTrigger className="h-12 rounded-xl border-2 focus:border-luxury-gold">
                 <SelectValue placeholder="All Brands" />
               </SelectTrigger>
               <SelectContent>
@@ -110,7 +140,7 @@ export default function Cars() {
 
             {/* Category Filter */}
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger>
+              <SelectTrigger className="h-12 rounded-xl border-2 focus:border-luxury-gold">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
@@ -124,7 +154,7 @@ export default function Cars() {
 
             {/* Price Filter */}
             <Select value={priceRange} onValueChange={setPriceRange}>
-              <SelectTrigger>
+              <SelectTrigger className="h-12 rounded-xl border-2 focus:border-luxury-gold">
                 <SelectValue placeholder="All Prices" />
               </SelectTrigger>
               <SelectContent>
@@ -138,7 +168,7 @@ export default function Cars() {
 
             {/* Sort */}
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger>
+              <SelectTrigger className="h-12 rounded-xl border-2 focus:border-luxury-gold">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -150,10 +180,15 @@ export default function Cars() {
             </Select>
           </div>
 
-          <div className="flex items-center justify-between mt-4">
-            <p className="text-sm text-muted-foreground">
-              Showing {filteredAndSortedCars.length} of {cars.length} vehicles
-            </p>
+          <div className="flex items-center justify-between mt-8 pt-6 border-t border-border">
+            <div className="flex items-center gap-4">
+              <p className="text-muted-foreground">
+                Showing <span className="font-bold text-luxury-gold">{filteredAndSortedCars.length}</span> of <span className="font-bold">{cars.length}</span> luxury vehicles
+              </p>
+              {filteredAndSortedCars.length !== cars.length && (
+                <div className="h-2 w-2 bg-luxury-gold rounded-full animate-pulse" />
+              )}
+            </div>
             <Button
               variant="outline"
               size="sm"
@@ -164,15 +199,20 @@ export default function Cars() {
                 setPriceRange('all');
                 setSortBy('name');
               }}
+              className="rounded-full border-luxury-gold/30 hover:border-luxury-gold hover:bg-luxury-gold/10"
             >
               <Filter className="h-4 w-4 mr-2" />
-              Clear Filters
+              Clear All Filters
             </Button>
           </div>
         </div>
 
         {/* Results */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className={`grid gap-8 ${
+          viewMode === 'grid' 
+            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
+            : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+        }`}>
           {filteredAndSortedCars.map((car, index) => (
             <div key={car.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.05}s` }}>
               <CarCard car={car} />
@@ -181,20 +221,25 @@ export default function Cars() {
         </div>
 
         {filteredAndSortedCars.length === 0 && (
-          <div className="text-center py-16 animate-fade-in">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-semibold text-foreground mb-2">No vehicles found</h3>
-            <p className="text-muted-foreground mb-4">
-              Try adjusting your filters or search terms
+          <div className="text-center py-20 animate-fade-in">
+            <div className="w-32 h-32 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-8">
+              <Search className="h-16 w-16 text-muted-foreground" />
+            </div>
+            <h3 className="text-3xl font-luxury font-semibold text-foreground mb-4">No vehicles found</h3>
+            <p className="text-xl text-muted-foreground mb-8 max-w-md mx-auto">
+              We couldn't find any luxury vehicles matching your criteria. Try adjusting your filters.
             </p>
             <Button
+              size="lg"
               onClick={() => {
                 setSearchTerm('');
                 setSelectedBrand('all');
                 setSelectedCategory('all');
                 setPriceRange('all');
               }}
+              className="rounded-full px-8 py-3"
             >
+              <Star className="mr-2 h-5 w-5" />
               Clear All Filters
             </Button>
           </div>
