@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -7,6 +6,12 @@ import { BrandCard } from '@/components/BrandCard';
 import { Button } from '@/components/ui/button';
 import { cars, brands } from '@/data/cars';
 import { ArrowRight, Star, Shield, Truck, Headphones, Sparkles } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Index() {
   const featuredCars = cars.slice(0, 8);
@@ -15,18 +20,44 @@ export default function Index() {
     count: cars.filter(car => car.brand === brand.id).length
   }));
 
+  const luxuryCarImages = [
+    "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1920", // Luxury Car
+    "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920", // Rolls Royce style
+    "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1920", // Bentley style
+    "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1920", // Luxury sedan
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section with Sliding Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=1920"
-            alt="Luxury Car"
-            className="w-full h-full object-cover scale-110 animate-[scale_20s_ease-in-out_infinite_alternate]"
-          />
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 5000,
+              }),
+            ]}
+            className="w-full h-full"
+          >
+            <CarouselContent className="h-full">
+              {luxuryCarImages.map((image, index) => (
+                <CarouselItem key={index} className="h-full">
+                  <img
+                    src={image}
+                    alt={`Luxury Car ${index + 1}`}
+                    className="w-full h-full object-cover scale-110 animate-[scale_20s_ease-in-out_infinite_alternate]"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/10 via-transparent to-luxury-gold/10" />
         </div>

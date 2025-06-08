@@ -1,58 +1,249 @@
-
 import { Car, Brand } from '@/types/car';
 
 export const brands: Brand[] = [
   {
+    id: 'rolls-royce',
+    name: 'Rolls-Royce',
+    logo: 'https://logos-world.net/wp-content/uploads/2021/03/Rolls-Royce-Logo.png',
+    description: 'The pinnacle of luxury motoring since 1904',
+    founded: '1904',
+    headquarters: 'Goodwood, England'
+  },
+  {
     id: 'bentley',
     name: 'Bentley',
-    logo: '🏆',
-    description: 'Extraordinary journeys demand extraordinary automobiles',
+    logo: 'https://logos-world.net/wp-content/uploads/2021/04/Bentley-Logo.png',
+    description: 'Extraordinary journeys start with Bentley',
     founded: '1919',
     headquarters: 'Crewe, England'
   },
   {
-    id: 'rolls-royce',
-    name: 'Rolls-Royce',
-    logo: '👑',
-    description: 'The pinnacle of luxury and craftsmanship',
-    founded: '1906',
-    headquarters: 'Goodwood, England'
+    id: 'aston-martin',
+    name: 'Aston Martin',
+    logo: 'https://logos-world.net/wp-content/uploads/2021/03/Aston-Martin-Logo.png',
+    description: 'Power, beauty and soul since 1913',
+    founded: '1913',
+    headquarters: 'Gaydon, England'
   },
   {
-    id: 'mclaren',
-    name: 'McLaren',
-    logo: '🏎️',
-    description: 'Racing-bred performance and innovation',
-    founded: '1963',
-    headquarters: 'Woking, England'
+    id: 'maserati',
+    name: 'Maserati',
+    logo: 'https://logos-world.net/wp-content/uploads/2021/03/Maserati-Logo.png',
+    description: 'Luxury, sports cars and innovation since 1914',
+    founded: '1914',
+    headquarters: 'Modena, Italy'
   },
   {
     id: 'lamborghini',
     name: 'Lamborghini',
-    logo: '🐂',
-    description: 'Unleash the beast within',
+    logo: 'https://logos-world.net/wp-content/uploads/2021/03/Lamborghini-Logo.png',
+    description: 'Expect the unexpected since 1963',
     founded: '1963',
     headquarters: 'Sant\'Agata Bolognese, Italy'
   },
   {
     id: 'ferrari',
     name: 'Ferrari',
-    logo: '🐎',
-    description: 'The prancing horse of automotive excellence',
+    logo: 'https://logos-world.net/wp-content/uploads/2021/03/Ferrari-Logo.png',
+    description: 'The prancing horse of Italian excellence',
     founded: '1947',
     headquarters: 'Maranello, Italy'
-  },
-  {
-    id: 'aston-martin',
-    name: 'Aston Martin',
-    logo: '🦅',
-    description: 'Power, beauty and soul',
-    founded: '1913',
-    headquarters: 'Gaydon, England'
   }
 ];
 
 export const cars: Car[] = [
+  // Rolls-Royce Cars
+  {
+    id: 'rolls-royce-phantom',
+    name: 'Phantom',
+    brand: 'rolls-royce',
+    price: 65000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The pinnacle of automotive luxury',
+    features: ['Magic Carpet Ride', 'Starlight Headliner', 'Bespoke Interior', 'Silent Operation'],
+    specifications: {
+      engine: '6.75L Twin-Turbo V12',
+      power: '563 HP',
+      acceleration: '0-100 km/h in 5.4s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'sedan'
+  },
+  {
+    id: 'rolls-royce-ghost',
+    name: 'Ghost',
+    brand: 'rolls-royce',
+    price: 55000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'Contemporary luxury with timeless elegance',
+    features: ['Contemporary Design', 'Advanced Technology', 'Refined Performance', 'Luxurious Comfort'],
+    specifications: {
+      engine: '6.75L Twin-Turbo V12',
+      power: '563 HP',
+      acceleration: '0-100 km/h in 4.8s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'sedan'
+  },
+  {
+    id: 'rolls-royce-cullinan',
+    name: 'Cullinan',
+    brand: 'rolls-royce',
+    price: 58000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The first luxury SUV from Rolls-Royce',
+    features: ['All-Terrain Capability', 'Luxury Interior', 'Advanced Off-Road', 'Premium Comfort'],
+    specifications: {
+      engine: '6.75L Twin-Turbo V12',
+      power: '563 HP',
+      acceleration: '0-100 km/h in 5.2s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'suv'
+  },
+  {
+    id: 'rolls-royce-wraith',
+    name: 'Wraith',
+    brand: 'rolls-royce',
+    price: 48000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The most powerful Rolls-Royce ever',
+    features: ['Powerful Performance', 'Fastback Design', 'Luxury Features', 'Advanced Technology'],
+    specifications: {
+      engine: '6.6L Twin-Turbo V12',
+      power: '624 HP',
+      acceleration: '0-100 km/h in 4.4s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'coupe'
+  },
+  {
+    id: 'rolls-royce-dawn',
+    name: 'Dawn',
+    brand: 'rolls-royce',
+    price: 52000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The most beautiful open-top car ever created',
+    features: ['Convertible Design', 'Silent Mechanism', 'Luxury Comfort', 'Premium Materials'],
+    specifications: {
+      engine: '6.6L Twin-Turbo V12',
+      power: '563 HP',
+      acceleration: '0-100 km/h in 4.9s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'convertible'
+  },
+  {
+    id: 'rolls-royce-spectre',
+    name: 'Spectre',
+    brand: 'rolls-royce',
+    price: 70000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The first fully electric Rolls-Royce',
+    features: ['Electric Powertrain', 'Silent Operation', 'Advanced Technology', 'Sustainable Luxury'],
+    specifications: {
+      engine: 'Dual Electric Motors',
+      power: '577 HP',
+      acceleration: '0-100 km/h in 4.5s',
+      topSpeed: '250 km/h',
+      fuelType: 'Electric',
+      transmission: 'Single-Speed'
+    },
+    inStock: true,
+    category: 'coupe'
+  },
+  {
+    id: 'rolls-royce-phantom-extended',
+    name: 'Phantom Extended',
+    brand: 'rolls-royce',
+    price: 75000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'Extended wheelbase for ultimate luxury',
+    features: ['Extended Wheelbase', 'Executive Seating', 'Partition Glass', 'Premium Entertainment'],
+    specifications: {
+      engine: '6.75L Twin-Turbo V12',
+      power: '563 HP',
+      acceleration: '0-100 km/h in 5.4s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'sedan'
+  },
+  {
+    id: 'rolls-royce-black-badge-ghost',
+    name: 'Black Badge Ghost',
+    brand: 'rolls-royce',
+    price: 62000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The alter ego of Rolls-Royce',
+    features: ['Dark Aesthetics', 'Enhanced Performance', 'Exclusive Design', 'Athletic Character'],
+    specifications: {
+      engine: '6.75L Twin-Turbo V12',
+      power: '600 HP',
+      acceleration: '0-100 km/h in 4.6s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'sedan'
+  },
+  {
+    id: 'rolls-royce-black-badge-cullinan',
+    name: 'Black Badge Cullinan',
+    brand: 'rolls-royce',
+    price: 68000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The darkest and most powerful SUV',
+    features: ['Black Badge Styling', 'Enhanced Power', 'Exclusive Interior', 'Performance Tuning'],
+    specifications: {
+      engine: '6.75L Twin-Turbo V12',
+      power: '600 HP',
+      acceleration: '0-100 km/h in 5.0s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: true,
+    category: 'suv'
+  },
+  {
+    id: 'rolls-royce-boat-tail',
+    name: 'Boat Tail',
+    brand: 'rolls-royce',
+    price: 250000000,
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
+    description: 'The most expensive car ever made',
+    features: ['One-Off Bespoke', 'Nautical Inspiration', 'Unique Design', 'Ultimate Exclusivity'],
+    specifications: {
+      engine: '6.75L Twin-Turbo V12',
+      power: '563 HP',
+      acceleration: '0-100 km/h in 5.0s',
+      topSpeed: '250 km/h',
+      fuelType: 'Petrol',
+      transmission: '8-Speed Automatic'
+    },
+    inStock: false,
+    category: 'convertible'
+  },
+
   // Bentley Cars
   {
     id: 'bentley-continental-gt',
@@ -243,198 +434,6 @@ export const cars: Car[] = [
       transmission: '8-Speed Automatic'
     },
     inStock: true,
-    category: 'convertible'
-  },
-
-  // Rolls-Royce Cars
-  {
-    id: 'rolls-royce-phantom',
-    name: 'Phantom',
-    brand: 'rolls-royce',
-    price: 65000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The pinnacle of automotive luxury',
-    features: ['Magic Carpet Ride', 'Starlight Headliner', 'Bespoke Interior', 'Silent Operation'],
-    specifications: {
-      engine: '6.75L Twin-Turbo V12',
-      power: '563 HP',
-      acceleration: '0-100 km/h in 5.4s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'sedan'
-  },
-  {
-    id: 'rolls-royce-ghost',
-    name: 'Ghost',
-    brand: 'rolls-royce',
-    price: 55000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'Contemporary luxury with timeless elegance',
-    features: ['Contemporary Design', 'Advanced Technology', 'Refined Performance', 'Luxurious Comfort'],
-    specifications: {
-      engine: '6.75L Twin-Turbo V12',
-      power: '563 HP',
-      acceleration: '0-100 km/h in 4.8s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'sedan'
-  },
-  {
-    id: 'rolls-royce-cullinan',
-    name: 'Cullinan',
-    brand: 'rolls-royce',
-    price: 58000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The first luxury SUV from Rolls-Royce',
-    features: ['All-Terrain Capability', 'Luxury Interior', 'Advanced Off-Road', 'Premium Comfort'],
-    specifications: {
-      engine: '6.75L Twin-Turbo V12',
-      power: '563 HP',
-      acceleration: '0-100 km/h in 5.2s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'suv'
-  },
-  {
-    id: 'rolls-royce-wraith',
-    name: 'Wraith',
-    brand: 'rolls-royce',
-    price: 48000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The most powerful Rolls-Royce ever',
-    features: ['Powerful Performance', 'Fastback Design', 'Luxury Features', 'Advanced Technology'],
-    specifications: {
-      engine: '6.6L Twin-Turbo V12',
-      power: '624 HP',
-      acceleration: '0-100 km/h in 4.4s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'coupe'
-  },
-  {
-    id: 'rolls-royce-dawn',
-    name: 'Dawn',
-    brand: 'rolls-royce',
-    price: 52000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The most beautiful open-top car ever created',
-    features: ['Convertible Design', 'Silent Mechanism', 'Luxury Comfort', 'Premium Materials'],
-    specifications: {
-      engine: '6.6L Twin-Turbo V12',
-      power: '563 HP',
-      acceleration: '0-100 km/h in 4.9s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'convertible'
-  },
-  {
-    id: 'rolls-royce-spectre',
-    name: 'Spectre',
-    brand: 'rolls-royce',
-    price: 70000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The first fully electric Rolls-Royce',
-    features: ['Electric Powertrain', 'Silent Operation', 'Advanced Technology', 'Sustainable Luxury'],
-    specifications: {
-      engine: 'Dual Electric Motors',
-      power: '577 HP',
-      acceleration: '0-100 km/h in 4.5s',
-      topSpeed: '250 km/h',
-      fuelType: 'Electric',
-      transmission: 'Single-Speed'
-    },
-    inStock: true,
-    category: 'coupe'
-  },
-  {
-    id: 'rolls-royce-phantom-extended',
-    name: 'Phantom Extended',
-    brand: 'rolls-royce',
-    price: 75000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'Extended wheelbase for ultimate luxury',
-    features: ['Extended Wheelbase', 'Executive Seating', 'Partition Glass', 'Premium Entertainment'],
-    specifications: {
-      engine: '6.75L Twin-Turbo V12',
-      power: '563 HP',
-      acceleration: '0-100 km/h in 5.4s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'sedan'
-  },
-  {
-    id: 'rolls-royce-black-badge-ghost',
-    name: 'Black Badge Ghost',
-    brand: 'rolls-royce',
-    price: 62000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The alter ego of Rolls-Royce',
-    features: ['Dark Aesthetics', 'Enhanced Performance', 'Exclusive Design', 'Athletic Character'],
-    specifications: {
-      engine: '6.75L Twin-Turbo V12',
-      power: '600 HP',
-      acceleration: '0-100 km/h in 4.6s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'sedan'
-  },
-  {
-    id: 'rolls-royce-black-badge-cullinan',
-    name: 'Black Badge Cullinan',
-    brand: 'rolls-royce',
-    price: 68000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The darkest and most powerful SUV',
-    features: ['Black Badge Styling', 'Enhanced Power', 'Exclusive Interior', 'Performance Tuning'],
-    specifications: {
-      engine: '6.75L Twin-Turbo V12',
-      power: '600 HP',
-      acceleration: '0-100 km/h in 5.0s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: true,
-    category: 'suv'
-  },
-  {
-    id: 'rolls-royce-boat-tail',
-    name: 'Boat Tail',
-    brand: 'rolls-royce',
-    price: 250000000,
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800',
-    description: 'The most expensive car ever made',
-    features: ['One-Off Bespoke', 'Nautical Inspiration', 'Unique Design', 'Ultimate Exclusivity'],
-    specifications: {
-      engine: '6.75L Twin-Turbo V12',
-      power: '563 HP',
-      acceleration: '0-100 km/h in 5.0s',
-      topSpeed: '250 km/h',
-      fuelType: 'Petrol',
-      transmission: '8-Speed Automatic'
-    },
-    inStock: false,
     category: 'convertible'
   },
 
