@@ -12,6 +12,8 @@ import Brands from "./pages/Brands";
 import BrandDetail from "./pages/BrandDetail";
 import CarDetail from "./pages/CarDetail";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +34,8 @@ const App = () => (
               <Route path="/brand/:brandId" element={<BrandDetail />} />
               <Route path="/car/:carId" element={<CarDetail />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/checkout-success" element={<CheckoutSuccess />} />
               <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

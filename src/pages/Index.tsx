@@ -21,10 +21,10 @@ export default function Index() {
   }));
 
   const luxuryCarImages = [
-    "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1920", // Luxury Car
-    "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920", // Rolls Royce style
-    "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1920", // Bentley style
-    "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1920", // Luxury sedan
+    "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1920&h=1080&fit=crop", // Luxury Car
+    "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&h=1080&fit=crop", // Rolls Royce style
+    "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1920&h=1080&fit=crop", // Bentley style
+    "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1920&h=1080&fit=crop", // Luxury sedan
   ];
 
   return (
@@ -32,8 +32,8 @@ export default function Index() {
       <Header />
       
       {/* Hero Section with Sliding Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
           <Carousel
             opts={{
               align: "start",
@@ -46,20 +46,22 @@ export default function Index() {
             ]}
             className="w-full h-full"
           >
-            <CarouselContent className="h-full">
+            <CarouselContent className="h-full -ml-0">
               {luxuryCarImages.map((image, index) => (
-                <CarouselItem key={index} className="h-full">
-                  <img
-                    src={image}
-                    alt={`Luxury Car ${index + 1}`}
-                    className="w-full h-full object-cover scale-110 animate-[scale_20s_ease-in-out_infinite_alternate]"
-                  />
+                <CarouselItem key={index} className="h-full pl-0">
+                  <div className="relative w-full h-full">
+                    <img
+                      src={image}
+                      alt={`Luxury Car ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/50" />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
           </Carousel>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/10 via-transparent to-luxury-gold/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/5 via-transparent to-luxury-gold/5" />
         </div>
         
         <div className="relative z-10 text-center text-white px-4 animate-fade-in-up max-w-6xl mx-auto">
@@ -67,8 +69,10 @@ export default function Index() {
             <Sparkles className="h-16 w-16 text-luxury-gold mx-auto mb-4 animate-pulse" />
           </div>
           
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-luxury font-bold mb-8 text-shimmer leading-tight">
-            Luxury Redefined
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-luxury font-bold mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-luxury-gold via-white to-luxury-gold bg-clip-text text-transparent">
+              Luxury Redefined
+            </span>
           </h1>
           
           <p className="text-xl md:text-3xl mb-12 max-w-4xl mx-auto text-gray-200 leading-relaxed font-light">
@@ -78,7 +82,7 @@ export default function Index() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/cars">
-              <Button size="lg" className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark hover:from-luxury-gold-dark hover:to-luxury-gold text-black font-bold px-12 py-6 text-xl rounded-full shadow-2xl hover:shadow-luxury-gold/50 transition-all duration-300 transform hover:scale-105 luxury-glow">
+              <Button size="lg" className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark hover:from-luxury-gold-dark hover:to-luxury-gold text-black font-bold px-12 py-6 text-xl rounded-full shadow-2xl hover:shadow-luxury-gold/50 transition-all duration-300 transform hover:scale-105">
                 <Sparkles className="mr-3 h-6 w-6" />
                 Explore Collection
                 <ArrowRight className="ml-3 h-6 w-6" />
@@ -93,15 +97,15 @@ export default function Index() {
           </div>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="glass-effect rounded-2xl p-6">
+            <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
               <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">65+</div>
               <div className="text-white/80">Premium Vehicles</div>
             </div>
-            <div className="glass-effect rounded-2xl p-6">
+            <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
               <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">6</div>
               <div className="text-white/80">Luxury Brands</div>
             </div>
-            <div className="glass-effect rounded-2xl p-6">
+            <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
               <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">24/7</div>
               <div className="text-white/80">Premium Support</div>
             </div>
@@ -123,7 +127,7 @@ export default function Index() {
             </div>
             
             <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6">
-              World-Class <span className="text-shimmer">Manufacturers</span>
+              World-Class <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent">Manufacturers</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Explore collections from the world's most prestigious automotive manufacturers, 
@@ -151,7 +155,7 @@ export default function Index() {
             </div>
             
             <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6">
-              Handpicked <span className="text-shimmer">Excellence</span>
+              Handpicked <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent">Excellence</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Our curated selection of extraordinary vehicles from our premium inventory, 
@@ -188,7 +192,7 @@ export default function Index() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-20 animate-fade-in">
             <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6">
-              Why Choose <span className="text-shimmer">LuxuryAutos?</span>
+              Why Choose <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent">LuxuryAutos?</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Experience the pinnacle of luxury automotive retail with our unmatched service and expertise

@@ -35,11 +35,6 @@ export default function Cart() {
     );
   }
 
-  const handleCheckout = () => {
-    // This will integrate with Stripe when payment is implemented
-    alert('Proceeding to checkout... (Payment integration coming soon!)');
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -162,13 +157,14 @@ export default function Cart() {
                 </div>
 
                 <div className="space-y-3">
-                  <Button
-                    onClick={handleCheckout}
-                    className="w-full bg-luxury-gold hover:bg-luxury-gold-dark text-black font-semibold py-3"
-                    size="lg"
-                  >
-                    Proceed to Checkout
-                  </Button>
+                  <Link to="/checkout">
+                    <Button
+                      className="w-full bg-luxury-gold hover:bg-luxury-gold-dark text-black font-semibold py-3"
+                      size="lg"
+                    >
+                      Proceed to Checkout
+                    </Button>
+                  </Link>
                   
                   <Button
                     variant="outline"
