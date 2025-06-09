@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -28,7 +29,7 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
       <Header />
       
       {/* Hero Section with Sliding Background */}
@@ -53,60 +54,60 @@ export default function Index() {
                     <img
                       src={image}
                       alt={`Luxury Car ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover scale-110 animate-[scale_20s_ease-in-out_infinite_alternate]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/50" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/10 via-transparent to-luxury-gold/10" />
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
           </Carousel>
-          <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/5 via-transparent to-luxury-gold/5" />
         </div>
         
-        <div className="relative z-10 text-center text-white px-4 animate-fade-in-up max-w-6xl mx-auto">
-          <div className="mb-8">
-            <Sparkles className="h-16 w-16 text-luxury-gold mx-auto mb-4 animate-pulse" />
+        <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+          <div className="mb-8 floating-element">
+            <Sparkles className="h-16 w-16 text-luxury-gold mx-auto mb-4 pulse-soft" />
           </div>
           
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-luxury font-bold mb-8 leading-tight">
-            <span className="bg-gradient-to-r from-luxury-gold via-white to-luxury-gold bg-clip-text text-transparent">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-luxury font-bold mb-8 leading-tight scale-in-center">
+            <span className="bg-gradient-to-r from-luxury-gold via-white to-luxury-gold bg-clip-text text-transparent text-shimmer">
               Luxury Redefined
             </span>
           </h1>
           
-          <p className="text-xl md:text-3xl mb-12 max-w-4xl mx-auto text-gray-200 leading-relaxed font-light">
+          <p className="text-xl md:text-3xl mb-12 max-w-4xl mx-auto text-gray-200 leading-relaxed font-light fade-in-up">
             Discover the world's most exclusive automotive masterpieces. From Bentley to Rolls-Royce, 
             experience unparalleled luxury and performance in every detail.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center slide-in-bottom">
             <Link to="/cars">
-              <Button size="lg" className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark hover:from-luxury-gold-dark hover:to-luxury-gold text-black font-bold px-12 py-6 text-xl rounded-full shadow-2xl hover:shadow-luxury-gold/50 transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" className="btn-luxury bg-gradient-to-r from-luxury-gold to-luxury-gold-dark hover:from-luxury-gold-dark hover:to-luxury-gold text-black font-bold px-12 py-6 text-xl rounded-full shadow-2xl hover:shadow-luxury-gold/50 transition-all duration-300 transform hover:scale-105 luxury-glow">
                 <Sparkles className="mr-3 h-6 w-6" />
                 Explore Collection
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
             </Link>
             <Link to="/brands">
-              <Button size="lg" variant="outline" className="border-2 border-white/70 text-white hover:bg-white hover:text-black px-12 py-6 text-xl rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" variant="outline" className="btn-luxury border-2 border-white/70 text-white hover:bg-white hover:text-black px-12 py-6 text-xl rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105">
                 <Star className="mr-3 h-6 w-6" />
                 View Brands
               </Button>
             </Link>
           </div>
           
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
-              <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">65+</div>
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center fade-in-scale">
+            <div className="glass-effect rounded-2xl p-6 luxury-card">
+              <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2 bounce-gentle">65+</div>
               <div className="text-white/80">Premium Vehicles</div>
             </div>
-            <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
-              <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">6</div>
+            <div className="glass-effect rounded-2xl p-6 luxury-card" style={{ animationDelay: '0.2s' }}>
+              <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2 bounce-gentle">6</div>
               <div className="text-white/80">Luxury Brands</div>
             </div>
-            <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
-              <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">24/7</div>
+            <div className="glass-effect rounded-2xl p-6 luxury-card" style={{ animationDelay: '0.4s' }}>
+              <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2 bounce-gentle">24/7</div>
               <div className="text-white/80">Premium Support</div>
             </div>
           </div>
@@ -120,16 +121,16 @@ export default function Index() {
         }} />
         
         <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center gap-3 bg-luxury-gold/10 px-6 py-3 rounded-full mb-6">
-              <Star className="h-5 w-5 text-luxury-gold" />
+          <div className="text-center mb-20 fade-in-up">
+            <div className="inline-flex items-center gap-3 bg-luxury-gold/10 px-6 py-3 rounded-full mb-6 glass-effect">
+              <Star className="h-5 w-5 text-luxury-gold rotate-slow" />
               <span className="text-luxury-gold font-semibold">Premium Brands</span>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6">
-              World-Class <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent">Manufacturers</span>
+            <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6 scale-in-center">
+              World-Class <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent text-shimmer">Manufacturers</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up">
               Explore collections from the world's most prestigious automotive manufacturers, 
               each representing decades of heritage and excellence
             </p>
@@ -137,7 +138,7 @@ export default function Index() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {brandCounts.map((brand, index) => (
-              <div key={brand.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
+              <div key={brand.id} className="fade-in-scale luxury-card" style={{ animationDelay: `${index * 0.15}s` }}>
                 <BrandCard brand={brand} carCount={brand.count} />
               </div>
             ))}
@@ -148,16 +149,16 @@ export default function Index() {
       {/* Featured Cars */}
       <section className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center gap-3 bg-luxury-gold/10 px-6 py-3 rounded-full mb-6">
-              <Sparkles className="h-5 w-5 text-luxury-gold" />
+          <div className="text-center mb-20 fade-in-up">
+            <div className="inline-flex items-center gap-3 bg-luxury-gold/10 px-6 py-3 rounded-full mb-6 glass-effect">
+              <Sparkles className="h-5 w-5 text-luxury-gold pulse-soft" />
               <span className="text-luxury-gold font-semibold">Featured Collection</span>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6">
-              Handpicked <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent">Excellence</span>
+            <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6 scale-in-center">
+              Handpicked <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent text-shimmer">Excellence</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up">
               Our curated selection of extraordinary vehicles from our premium inventory, 
               each one a masterpiece of engineering and design
             </p>
@@ -165,15 +166,15 @@ export default function Index() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredCars.map((car, index) => (
-              <div key={car.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div key={car.id} className="fade-in-scale luxury-card" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CarCard car={car} />
               </div>
             ))}
           </div>
           
-          <div className="text-center mt-16">
+          <div className="text-center mt-16 fade-in-up">
             <Link to="/cars">
-              <Button size="lg" variant="outline" className="border-2 border-luxury-gold/50 hover:border-luxury-gold hover:bg-luxury-gold/10 px-12 py-6 text-xl rounded-full transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" variant="outline" className="btn-luxury border-2 border-luxury-gold/50 hover:border-luxury-gold hover:bg-luxury-gold/10 px-12 py-6 text-xl rounded-full transition-all duration-300 transform hover:scale-105">
                 <Star className="mr-3 h-6 w-6" />
                 View Complete Collection
                 <ArrowRight className="ml-3 h-6 w-6" />
@@ -190,11 +191,11 @@ export default function Index() {
         }} />
         
         <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-20 animate-fade-in">
-            <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6">
-              Why Choose <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent">LuxuryAutos?</span>
+          <div className="text-center mb-20 fade-in-up">
+            <h2 className="text-5xl md:text-7xl font-luxury font-bold text-foreground mb-6 scale-in-center">
+              Why Choose <span className="bg-gradient-to-r from-luxury-gold to-luxury-gold-dark bg-clip-text text-transparent text-shimmer">LuxuryAutos?</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-up">
               Experience the pinnacle of luxury automotive retail with our unmatched service and expertise
             </p>
           </div>
@@ -222,9 +223,9 @@ export default function Index() {
                 description: 'Dedicated luxury concierge service for all your automotive needs and inquiries'
               }
             ].map((feature, index) => (
-              <div key={feature.title} className="text-center animate-fade-in card-hover" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div key={feature.title} className="text-center fade-in-scale luxury-card" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="relative">
-                  <div className="w-20 h-20 bg-gradient-to-br from-luxury-gold/20 to-luxury-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 bg-gradient-to-br from-luxury-gold/20 to-luxury-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 floating-element">
                     <feature.icon className="h-10 w-10 text-luxury-gold" />
                   </div>
                 </div>
@@ -246,11 +247,11 @@ export default function Index() {
               { number: '24/7', label: 'Customer Support', icon: '🎯' },
               { number: '100%', label: 'Satisfaction Guarantee', icon: '✨' }
             ].map((stat, index) => (
-              <div key={stat.label} className="animate-fade-in group" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div key={stat.label} className="fade-in-scale luxury-card group" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="text-6xl mb-4 bounce-gentle">
                   {stat.icon}
                 </div>
-                <div className="text-5xl md:text-6xl font-luxury font-bold text-luxury-gold mb-4 group-hover:text-shimmer transition-all duration-300">
+                <div className="text-5xl md:text-6xl font-luxury font-bold text-luxury-gold mb-4 text-shimmer">
                   {stat.number}
                 </div>
                 <div className="text-lg text-muted-foreground font-medium">{stat.label}</div>
@@ -267,46 +268,46 @@ export default function Index() {
         }} />
         
         <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 fade-in-up">
             <div className="md:col-span-2">
-              <h3 className="text-3xl font-luxury font-bold mb-6 text-luxury-gold">LuxuryAutos</h3>
+              <h3 className="text-3xl font-luxury font-bold mb-6 text-luxury-gold text-shimmer">LuxuryAutos</h3>
               <p className="text-background/80 text-lg leading-relaxed mb-6">
                 India's premier destination for luxury automobiles. We curate the finest collection 
                 of premium vehicles and provide an unmatched luxury shopping experience.
               </p>
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center hover-scale">
                   <span className="text-luxury-gold">📧</span>
                 </div>
-                <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center hover-scale">
                   <span className="text-luxury-gold">📱</span>
                 </div>
-                <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-luxury-gold/20 rounded-full flex items-center justify-center hover-scale">
                   <span className="text-luxury-gold">🌐</span>
                 </div>
               </div>
             </div>
             
-            <div>
+            <div className="fade-in-left">
               <h4 className="font-luxury font-semibold text-xl mb-6 text-luxury-gold">Quick Links</h4>
               <div className="space-y-4">
-                <Link to="/cars" className="block text-background/80 hover:text-luxury-gold transition-colors text-lg">All Cars</Link>
-                <Link to="/brands" className="block text-background/80 hover:text-luxury-gold transition-colors text-lg">Brands</Link>
-                <Link to="/about" className="block text-background/80 hover:text-luxury-gold transition-colors text-lg">About Us</Link>
+                <Link to="/cars" className="block text-background/80 hover:text-luxury-gold transition-colors text-lg hover-scale">All Cars</Link>
+                <Link to="/brands" className="block text-background/80 hover:text-luxury-gold transition-colors text-lg hover-scale">Brands</Link>
+                <Link to="/about" className="block text-background/80 hover:text-luxury-gold transition-colors text-lg hover-scale">About Us</Link>
               </div>
             </div>
             
-            <div>
+            <div className="fade-in-right">
               <h4 className="font-luxury font-semibold text-xl mb-6 text-luxury-gold">Premium Support</h4>
               <div className="space-y-4">
                 <div className="text-background/80 text-lg">24/7 Luxury Concierge</div>
-                <div className="text-luxury-gold font-semibold text-xl">+91 98765 43210</div>
+                <div className="text-luxury-gold font-semibold text-xl pulse-soft">+91 98765 43210</div>
                 <div className="text-background/80">support@luxuryautos.in</div>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-background/20 mt-12 pt-8 text-center text-background/60">
+          <div className="border-t border-background/20 mt-12 pt-8 text-center text-background/60 fade-in-up">
             <p className="text-lg">&copy; 2024 LuxuryAutos. All rights reserved. | Luxury Redefined.</p>
           </div>
         </div>
